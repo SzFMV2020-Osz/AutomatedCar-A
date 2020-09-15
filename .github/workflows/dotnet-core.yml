@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 3.1.401
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal #--collect:"XPlat Code Coverage"
     - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@4.5.8
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.6.7
       with:
         reports: 'coverage.xml' # REQUIRED # The coverage reports that should be parsed (separated by semicolon). Globbing is supported.
         targetdir: 'coveragereport' # REQUIRED # The directory where the generated report should be saved.
@@ -38,6 +38,7 @@ jobs:
         verbosity: 'Info' # The verbosity level of the log messages. Values: Verbose, Info, Warning, Error, Off
         #title: '' # Optional title.
         tag: '${{ github.run_number }}_${{ github.run_id }}' # Optional tag or build version.
+        customSettings: '' # Optional custom settings (separated by semicolon). See: https://github.com/danielpalme/ReportGenerator/wiki/Settings.
     - name: Codecov report
       if: success()
       run: bash <(curl -s https://codecov.io/bash)
