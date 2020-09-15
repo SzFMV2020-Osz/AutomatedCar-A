@@ -18,7 +18,6 @@ namespace AutomatedCar
             this.CurrentTick++;
         }
 
-
         protected abstract void Tick();
 
         protected GameBase()

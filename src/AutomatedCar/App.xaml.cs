@@ -3,13 +3,13 @@ namespace AutomatedCar
     using System.Collections.Generic;
     using System.IO;
     using System.Reflection;
+    using AutomatedCar.Models;
+    using AutomatedCar.ViewModels;
+    using AutomatedCar.Views;
     using Avalonia;
     using Avalonia.Controls.ApplicationLifetimes;
     using Avalonia.Markup.Xaml;
     using Avalonia.Media;
-    using AutomatedCar.Models;
-    using AutomatedCar.ViewModels;
-    using AutomatedCar.Views;
     using Newtonsoft.Json.Linq;
 
     public class App : Application
