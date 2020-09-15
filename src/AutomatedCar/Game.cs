@@ -3,31 +3,41 @@ using System.Linq;
 using AutomatedCar.Models;
 using Avalonia.Input;
 
-namespace AutomatedCar {
+namespace AutomatedCar
+{
     using Models;
 
-    public class Game : GameBase {
+    public class Game : GameBase
+    {
         private readonly World world;
 
         public World World { get => world; }
 
-        public Game (World world) {
+        public Game(World world)
+        {
             this.world = world;
         }
 
-        private Random Random { get; } = new Random ();
+        private Random Random { get; } = new Random();
 
-        protected override void Tick () {
-            if (Keyboard.IsKeyDown (Key.Up)) {
+        protected override void Tick()
+        {
+            if (Keyboard.IsKeyDown(Key.Up))
+            {
                 world.ControlledCar.Y -= 5;
-            } else if (Keyboard.IsKeyDown (Key.Down)) {
+            }
+            else if (Keyboard.IsKeyDown(Key.Down))
+            {
                 world.ControlledCar.Y += 5;
-            } else if (Keyboard.IsKeyDown (Key.Left)) {
+            }
+            else if (Keyboard.IsKeyDown(Key.Left))
+            {
                 world.ControlledCar.X -= 5;
-            } else if (Keyboard.IsKeyDown (Key.Right)) {
+            }
+            else if (Keyboard.IsKeyDown(Key.Right))
+            {
                 world.ControlledCar.X += 5;
             }
-
         }
     }
 }

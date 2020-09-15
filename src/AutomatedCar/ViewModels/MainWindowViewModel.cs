@@ -5,32 +5,39 @@ using AutomatedCar.Models;
 using AutomatedCar.Views;
 using ReactiveUI;
 
-namespace AutomatedCar.ViewModels {
+namespace AutomatedCar.ViewModels
+{
     using Models;
 
-    public class MainWindowViewModel : ViewModelBase {
+    public class MainWindowViewModel : ViewModelBase
+    {
         private ViewModelBase dashboard;
         private ViewModelBase courseDisplay;
         private World world;
 
-        public World World {
+        public World World
+        {
             get => world;
-            private set => this.RaiseAndSetIfChanged (ref world, value);
+            private set => this.RaiseAndSetIfChanged(ref world, value);
         }
 
-        public MainWindowViewModel (World world) {
-            CourseDisplay = new CourseDisplayViewModel (world);
-            Dashboard = new DashboardViewModel (world.ControlledCar);
+        public MainWindowViewModel(World world)
+        {
+            CourseDisplay = new CourseDisplayViewModel(world);
+            Dashboard = new DashboardViewModel(world.ControlledCar);
             World = world;
         }
 
-        public ViewModelBase CourseDisplay {
+        public ViewModelBase CourseDisplay
+        {
             get => courseDisplay;
-            private set => this.RaiseAndSetIfChanged (ref courseDisplay, value);
+            private set => this.RaiseAndSetIfChanged(ref courseDisplay, value);
         }
-        public ViewModelBase Dashboard {
+
+        public ViewModelBase Dashboard
+        {
             get => dashboard;
-            private set => this.RaiseAndSetIfChanged (ref dashboard, value);
+            private set => this.RaiseAndSetIfChanged(ref dashboard, value);
         }
     }
 }
