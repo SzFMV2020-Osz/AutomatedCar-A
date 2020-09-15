@@ -1,9 +1,9 @@
-using System;
-using System.Globalization;
-using Avalonia.Data.Converters;
-
 namespace AutomatedCar.Visualization
 {
+    using System;
+    using System.Globalization;
+    using Avalonia.Data.Converters;
+
     public class Scaler : IValueConverter
     {
         public static Scaler Instance { get; } = new Scaler();

@@ -1,16 +1,14 @@
-using AutomatedCar.Models;
-
 namespace AutomatedCar.ViewModels
 {
-    using Models;
+    using AutomatedCar.Models;
 
     public class CourseDisplayViewModel : ViewModelBase
     {
-        public World World { get; private set; }
-
         public CourseDisplayViewModel(World world)
         {
             this.World = world;
         }
+
+        public World World { get; private set; }
     }
 }

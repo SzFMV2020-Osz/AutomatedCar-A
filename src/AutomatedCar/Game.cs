@@ -1,22 +1,19 @@
-using System;
-using System.Linq;
-using AutomatedCar.Models;
-using Avalonia.Input;
-
 namespace AutomatedCar
 {
-    using Models;
+    using System;
+    using AutomatedCar.Models;
+    using Avalonia.Input;
 
     public class Game : GameBase
     {
         private readonly World world;
 
-        public World World { get => world; }
-
         public Game(World world)
         {
             this.world = world;
         }
+
+        public World World { get => this.world; }
 
         private Random Random { get; } = new Random();
 
@@ -24,19 +21,19 @@ namespace AutomatedCar
         {
             if (Keyboard.IsKeyDown(Key.Up))
             {
-                world.ControlledCar.Y -= 5;
+                this.world.ControlledCar.Y -= 5;
             }
             else if (Keyboard.IsKeyDown(Key.Down))
             {
-                world.ControlledCar.Y += 5;
+                this.world.ControlledCar.Y += 5;
             }
             else if (Keyboard.IsKeyDown(Key.Left))
             {
-                world.ControlledCar.X -= 5;
+                this.world.ControlledCar.X -= 5;
             }
             else if (Keyboard.IsKeyDown(Key.Right))
             {
-                world.ControlledCar.X += 5;
+                this.world.ControlledCar.X += 5;
             }
         }
     }

@@ -7,7 +7,7 @@ namespace AutomatedCar.SystemComponents
         protected SystemComponent(VirtualFunctionBus virtualFunctionBus)
         {
             this.virtualFunctionBus = virtualFunctionBus;
-            virtualFunctionBus.registerComponent(this);
+            virtualFunctionBus.RegisterComponent(this);
         }
 
         public abstract void Process();

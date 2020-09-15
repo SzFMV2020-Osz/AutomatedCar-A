@@ -1,7 +1,7 @@
-using ReactiveUI;
-
 namespace AutomatedCar.SystemComponents.Packets
 {
+    using ReactiveUI;
+
     public class DummyPacket : ReactiveObject, IReadOnlyDummyPacket
     {
         private int distanceX;
@@ -9,14 +9,14 @@ namespace AutomatedCar.SystemComponents.Packets
 
         public int DistanceX
         {
-            get => distanceX;
-            set => this.RaiseAndSetIfChanged(ref distanceX, value);
+            get => this.distanceX;
+            set => this.RaiseAndSetIfChanged(ref this.distanceX, value);
         }
 
         public int DistanceY
         {
-            get => distanceY;
-            set => this.RaiseAndSetIfChanged(ref distanceY, value);
+            get => this.distanceY;
+            set => this.RaiseAndSetIfChanged(ref this.distanceY, value);
         }
     }
 }

@@ -1,22 +1,21 @@
-using System.Collections.Generic;
-using AutomatedCar.SystemComponents.Packets;
-
 namespace AutomatedCar.SystemComponents
 {
+    using System.Collections.Generic;
+
     public class VirtualFunctionBus : GameBase
     {
         private List<SystemComponent> components = new List<SystemComponent>();
 
         public IReadOnlyDummyPacket DummyPacket { get; set; }
 
-        public void registerComponent(SystemComponent component)
+        public void RegisterComponent(SystemComponent component)
         {
-            components.Add(component);
+            this.components.Add(component);
         }
 
         protected override void Tick()
         {
-            foreach (SystemComponent component in components)
+            foreach (SystemComponent component in this.components)
             {
                 component.Process();
             }

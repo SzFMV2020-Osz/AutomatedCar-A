@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutomatedCar.Models;
-using AutomatedCar.Views;
-using ReactiveUI;
-
-namespace AutomatedCar.ViewModels
+﻿namespace AutomatedCar.ViewModels
 {
-    using Models;
+    using AutomatedCar.Models;
+    using ReactiveUI;
 
     public class MainWindowViewModel : ViewModelBase
     {
@@ -17,27 +11,27 @@ namespace AutomatedCar.ViewModels
 
         public World World
         {
-            get => world;
-            private set => this.RaiseAndSetIfChanged(ref world, value);
+            get => this.world;
+            private set => this.RaiseAndSetIfChanged(ref this.world, value);
         }
 
         public MainWindowViewModel(World world)
         {
-            CourseDisplay = new CourseDisplayViewModel(world);
-            Dashboard = new DashboardViewModel(world.ControlledCar);
-            World = world;
+            this.CourseDisplay = new CourseDisplayViewModel(world);
+            this.Dashboard = new DashboardViewModel(world.ControlledCar);
+            this.World = world;
         }
 
         public ViewModelBase CourseDisplay
         {
-            get => courseDisplay;
-            private set => this.RaiseAndSetIfChanged(ref courseDisplay, value);
+            get => this.courseDisplay;
+            private set => this.RaiseAndSetIfChanged(ref this.courseDisplay, value);
         }
 
         public ViewModelBase Dashboard
         {
-            get => dashboard;
-            private set => this.RaiseAndSetIfChanged(ref dashboard, value);
+            get => this.dashboard;
+            private set => this.RaiseAndSetIfChanged(ref this.dashboard, value);
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using ReactiveUI;
-
-namespace AutomatedCar.ViewModels
+﻿namespace AutomatedCar.ViewModels
 {
+    using ReactiveUI;
+
     public class ViewModelBase : ReactiveObject
     {
     }

@@ -1,30 +1,33 @@
-using System;
-using Avalonia.Threading;
-
 namespace AutomatedCar
 {
+    using System;
+    using Avalonia.Threading;
+
     public abstract class GameBase
     {
         public const int TicksPerSecond = 60;
-        public long CurrentTick { get; private set; }
 
         private readonly DispatcherTimer _timer =
             new DispatcherTimer() {Interval = new TimeSpan(0, 0, 0, 0, 1000 / TicksPerSecond)};
 
+        public long CurrentTick { get; private set; }
+
         void DoTick()
         {
-            Tick();
-            CurrentTick++;
+            this.Tick();
+            this.CurrentTick++;
         }
+
 
         protected abstract void Tick();
 
         protected GameBase()
         {
-            _timer.Tick += delegate { DoTick(); };
+            this._timer.Tick += delegate { DoTick(); };
         }
 
-        public void Start() => _timer.IsEnabled = true;
-        public void Stop() => _timer.IsEnabled = false;
+        public void Start() => this._timer.IsEnabled = true;
+
+        public void Stop() => this._timer.IsEnabled = false;
     }
 }
