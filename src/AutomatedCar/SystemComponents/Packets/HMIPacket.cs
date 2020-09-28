@@ -1,6 +1,7 @@
 ﻿namespace AutomatedCar.SystemComponents.Packets
 {
     using ReactiveUI;
+
     class HMIPacket : ReactiveObject, IReadOnlyHMIPacket
     {
         private double gaspedal;
@@ -80,6 +81,5 @@
             get => this.sign;
             set => this.RaiseAndSetIfChanged(ref this.sign, value);
         }
-
     }
 }
