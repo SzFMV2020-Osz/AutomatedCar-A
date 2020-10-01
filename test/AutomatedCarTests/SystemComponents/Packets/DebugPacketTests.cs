@@ -5,7 +5,6 @@ namespace Tests.SystemComponents.Packets
 {
     public class DebugPacketTests : DebugPacketTestBase
     {
-
         [Fact]
         public void UltrasoundSensorExsits()
         {

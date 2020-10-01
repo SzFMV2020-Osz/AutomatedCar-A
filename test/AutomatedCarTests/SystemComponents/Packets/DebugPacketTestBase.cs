@@ -10,6 +10,5 @@ namespace Tests.SystemComponents.Packets
         {
             debugPacket = new DebugPacket();
         }
-
     }
 }

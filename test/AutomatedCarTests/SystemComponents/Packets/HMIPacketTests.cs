@@ -5,7 +5,6 @@ namespace Tests.SystemComponents.Packets
 {
     public class HMIPacketTests : HMIPacketTestBase
     {
-
         [Fact]
         public void GaspedalExsits()
         {
