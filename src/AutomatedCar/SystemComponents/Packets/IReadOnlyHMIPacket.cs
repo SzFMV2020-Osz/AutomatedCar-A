@@ -8,6 +8,8 @@
 
     Gears Gear { get; }
 
+    bool ACC { get; }
+
     double ACCDistance { get; }
 
     int ACCSpeed { get; }

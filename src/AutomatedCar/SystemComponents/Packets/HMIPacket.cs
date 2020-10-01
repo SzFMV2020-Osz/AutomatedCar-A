@@ -1,11 +1,12 @@
 ﻿namespace AutomatedCar.SystemComponents.Packets
 {
-    class HMIPacket : IReadOnlyHMIPacket
+    public class HMIPacket : IReadOnlyHMIPacket
     {
         private double gaspedal;
         private double breakpedal;
         private double steering;
         private Gears gear;
+        private bool acc;
         private double accDistance;
         private int accSpeed;
         private bool laneKeeping;
@@ -14,26 +15,28 @@
         private bool turnSignalLeft;
         private string sign;
 
-        public double Gaspedal { get => gaspedal; set => gaspedal = value; }
+        public double Gaspedal { get => this.gaspedal; set => this.gaspedal = value; }
 
-        public double Breakpedal { get => breakpedal; set => breakpedal = value; }
+        public double Breakpedal { get => this.breakpedal; set => this.breakpedal = value; }
 
-        public double Steering { get => steering; set => steering = value; }
+        public double Steering { get => this.steering; set => this.steering = value; }
 
-        public Gears Gear { get => gear; set => gear = value; }
+        public Gears Gear { get => this.gear; set => this.gear = value; }
 
-        public double ACCDistance { get => accDistance; set => accDistance = value; }
+        public bool ACC { get => this.acc; set => this.acc = value; }
 
-        public int ACCSpeed { get => accSpeed; set => accSpeed = value; }
+        public double ACCDistance { get => this.accDistance; set => this.accDistance = value; }
 
-        public bool LaneKeeping { get => laneKeeping; set => laneKeeping = value; }
+        public int ACCSpeed { get => this.accSpeed; set => this.accSpeed = value; }
 
-        public bool ParkingPilot { get => parkingPilot; set => parkingPilot = value; }
+        public bool LaneKeeping { get => this.laneKeeping; set => this.laneKeeping = value; }
 
-        public bool TurnSignalRight { get => turnSignalRight; set => turnSignalRight = value; }
+        public bool ParkingPilot { get => this.parkingPilot; set => this.parkingPilot = value; }
 
-        public bool TurnSignalLeft { get => turnSignalLeft; set => turnSignalLeft = value; }
+        public bool TurnSignalRight { get => this.turnSignalRight; set => this.turnSignalRight = value; }
 
-        public string Sign { get => sign; set => sign = value; }
+        public bool TurnSignalLeft { get => this.turnSignalLeft; set => this.turnSignalLeft = value; }
+
+        public string Sign { get => this.sign; set => this.sign = value; }
     }
 }
