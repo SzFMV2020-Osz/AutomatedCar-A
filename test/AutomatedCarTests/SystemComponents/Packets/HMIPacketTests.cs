@@ -8,7 +8,6 @@ namespace Tests.SystemComponents.Packets
         [Fact]
         public void GaspedalExsits()
         {
-
             Assert.IsType<double>(hmiPacket.Gaspedal);
         }
 

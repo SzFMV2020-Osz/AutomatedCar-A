@@ -7,8 +7,7 @@ namespace Tests.SystemComponents.Packets
     {
         [Fact]
         public void UltrasoundSensorExsits()
-        {
-            
+        {            
             Assert.IsType<bool>(debugPacket.UtrasoundSensor);
         }
 
