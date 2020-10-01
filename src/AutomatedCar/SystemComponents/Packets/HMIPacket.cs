@@ -1,85 +1,39 @@
 ﻿namespace AutomatedCar.SystemComponents.Packets
 {
-    using ReactiveUI;
-
-    class HMIPacket : ReactiveObject, IReadOnlyHMIPacket
+    class HMIPacket : IReadOnlyHMIPacket
     {
         private double gaspedal;
         private double breakpedal;
         private double steering;
         private Gears gear;
-        private double aCC_Distance;
-        private int aCC_Speed;
+        private double accDistance;
+        private int accSpeed;
         private bool laneKeeping;
         private bool parkingPilot;
         private bool turnSignalRight;
         private bool turnSignalLeft;
         private string sign;
 
-        public double Gaspedal
-        {
-            get => this.gaspedal;
-            set => this.RaiseAndSetIfChanged(ref this.gaspedal, value);
-        }
+        public double Gaspedal { get => gaspedal; set => gaspedal = value; }
 
-        public double Breakpedal
-        {
-            get => this.breakpedal;
-            set => this.RaiseAndSetIfChanged(ref this.breakpedal, value);
-        }
+        public double Breakpedal { get => breakpedal; set => breakpedal = value; }
 
-        public double Steering
-        {
-            get => this.steering;
-            set => this.RaiseAndSetIfChanged(ref this.steering, value);
-        }
+        public double Steering { get => steering; set => steering = value; }
 
-        public Gears Gear
-        {
-            get => this.gear;
-            set => this.RaiseAndSetIfChanged(ref this.gear, value);
-        }
+        public Gears Gear { get => gear; set => gear = value; }
 
-        public double ACC_Distance
-        {
-            get => this.aCC_Distance;
-            set => this.RaiseAndSetIfChanged(ref this.aCC_Distance, value);
-        }
+        public double ACCDistance { get => accDistance; set => accDistance = value; }
 
-        public int ACC_Speed
-        {
-            get => this.aCC_Speed;
-            set => this.RaiseAndSetIfChanged(ref this.aCC_Speed, value);
-        }
+        public int ACCSpeed { get => accSpeed; set => accSpeed = value; }
 
-        public bool LaneKeeping
-        {
-            get => this.laneKeeping;
-            set => this.RaiseAndSetIfChanged(ref this.laneKeeping, value);
-        }
+        public bool LaneKeeping { get => laneKeeping; set => laneKeeping = value; }
 
-        public bool ParkingPilot
-        {
-            get => this.parkingPilot;
-            set => this.RaiseAndSetIfChanged(ref this.parkingPilot, value);
-        }
+        public bool ParkingPilot { get => parkingPilot; set => parkingPilot = value; }
 
-        public bool TurnSignalRight
-        {
-            get => this.turnSignalRight;
-            set => this.RaiseAndSetIfChanged(ref this.turnSignalRight, value);
-        }
+        public bool TurnSignalRight { get => turnSignalRight; set => turnSignalRight = value; }
 
-        public bool TurnSignalLeft
-        {
-            get => this.turnSignalLeft;
-            set => this.RaiseAndSetIfChanged(ref this.turnSignalLeft, value);
-        }
+        public bool TurnSignalLeft { get => turnSignalLeft; set => turnSignalLeft = value; }
 
-        public string Sign
-        {
-            get => this.sign;
-            set => this.RaiseAndSetIfChanged(ref this.sign, value);
-        }
+        public string Sign { get => sign; set => sign = value; }
     }
 }

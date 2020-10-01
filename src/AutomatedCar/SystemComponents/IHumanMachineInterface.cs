@@ -2,7 +2,7 @@
 
 interface IHumanMachineInterface
 {
-    HMIPacket hMIPacket { get; }
+    HMIPacket hmiPacket { get; }
 
     DebugPacket debugPacket { get; }
 
@@ -20,11 +20,11 @@ interface IHumanMachineInterface
 
     bool ACC { get; set; }
 
-    bool ACC_Distance { get; set; }
+    bool ACCDistance { get; set; }
 
-    bool ACC_SpeedPus { get; set; }
+    bool ACCSpeedPus { get; set; }
 
-    bool ACC_SpeedMinus { get; set; }
+    bool ACCSpeedMinus { get; set; }
 
     bool LaneKeeping { get; set; }
 

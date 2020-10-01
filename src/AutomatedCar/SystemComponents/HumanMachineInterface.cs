@@ -5,7 +5,7 @@
 
     public class HumanMachineInterface : SystemComponent, IHumanMachineInterface
     {
-        private HMIPacket hMIPacket;
+        private HMIPacket hmiPacket;
         private DebugPacket debugPacket;
 
         #region Variables
@@ -16,9 +16,9 @@
         private bool geerUp;
         private bool geerDown;
         private bool aCC;
-        private bool aCC_Distance;
-        private bool aCC_SpeedPus;
-        private bool aCC_SpeedMinus;
+        private bool accDistance;
+        private bool accSpeedPus;
+        private bool accSpeedMinus;
         private bool laneKeeping;
         private bool parkingPilot;
         private bool turnSignalRight;
@@ -34,9 +34,9 @@
             this.virtualFunctionBus = virtualFunctionBus;
             virtualFunctionBus.RegisterComponent(this);
 
-            this.hMIPacket = new HMIPacket();
+            this.hmiPacket = new HMIPacket();
             this.debugPacket = new DebugPacket();
-            virtualFunctionBus.HMIPacket = this.hMIPacket;
+            virtualFunctionBus.HMIPacket = this.hmiPacket;
             virtualFunctionBus.DebugPacket = this.debugPacket;
         }
 
@@ -55,11 +55,11 @@
 
         public bool ACC { get => this.aCC; set => this.aCC = value; }
 
-        public bool ACC_Distance { get => this.aCC_Distance; set => this.aCC_Distance = value; }
+        public bool ACCDistance { get => this.accDistance; set => this.accDistance = value; }
 
-        public bool ACC_SpeedPus { get => this.aCC_SpeedPus; set => this.aCC_SpeedPus = value; }
+        public bool ACCSpeedPus { get => this.accSpeedPus; set => this.accSpeedPus = value; }
 
-        public bool ACC_SpeedMinus { get => this.aCC_SpeedMinus; set => this.aCC_SpeedMinus = value; }
+        public bool ACCSpeedMinus { get => this.accSpeedMinus; set => this.accSpeedMinus = value; }
 
         public bool LaneKeeping { get => this.laneKeeping; set => this.laneKeeping = value; }
 
@@ -75,7 +75,7 @@
 
         public bool CameraDebug { get => this.cameraDebug; set => this.cameraDebug = value; }
 
-        HMIPacket IHumanMachineInterface.hMIPacket { get => this.hMIPacket; }
+        HMIPacket IHumanMachineInterface.hmiPacket { get => this.hmiPacket; }
 
         DebugPacket IHumanMachineInterface.debugPacket { get => this.debugPacket; }
         #endregion

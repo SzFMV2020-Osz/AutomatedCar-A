@@ -1,6 +1,4 @@
-﻿public enum Gears {P, R, N, D}
-
-public interface IReadOnlyHMIPacket
+﻿public interface IReadOnlyHMIPacket
 {
     double Gaspedal { get; }
 
@@ -10,9 +8,9 @@ public interface IReadOnlyHMIPacket
 
     Gears Gear { get; }
 
-    double ACC_Distance { get; }
+    double ACCDistance { get; }
 
-    int ACC_Speed { get; }
+    int ACCSpeed { get; }
 
     bool LaneKeeping { get; }
 
