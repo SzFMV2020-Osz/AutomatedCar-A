@@ -6,12 +6,14 @@ namespace AutomatedCar.Models
     public class AutomatedCar : Car
     {
         private VirtualFunctionBus virtualFunctionBus;
+        private HumanMachineInterface humanMachineInterface;
         private DummySensor dummySensor;
 
         public AutomatedCar(int x, int y, string filename)
             : base(x, y, filename)
         {
             this.virtualFunctionBus = new VirtualFunctionBus();
+            this.humanMachineInterface = new HumanMachineInterface(this.virtualFunctionBus);
             this.dummySensor = new DummySensor(this.virtualFunctionBus);
             this.Brush = new SolidColorBrush(Color.Parse("red"));
         }
