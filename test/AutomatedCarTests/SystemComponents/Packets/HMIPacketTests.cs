@@ -25,7 +25,6 @@ namespace Tests.SystemComponents.Packets
         [Fact]
         public void GearExsits()
         {
-
             Assert.IsType<Gears>(hmiPacket.Gear);
         }
 
@@ -49,7 +48,6 @@ namespace Tests.SystemComponents.Packets
         [Fact]
         public void LaneKeepingExsits()
         {
-
             Assert.IsType<bool>(hmiPacket.LaneKeeping);
         }
 
