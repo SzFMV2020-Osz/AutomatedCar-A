@@ -12,8 +12,8 @@
 
         public Powertrain(VirtualFunctionBus virtualFunctionBus) : base(virtualFunctionBus)
         {
-            virtualFunctionBus.RegisterComponent(this);
             this.motor = new Motor();
+            virtualFunctionBus.RegisterComponent(this); 
         }
 
         public double Speed { get => this.speed; set => this.speed = this.motor.GasPedalToSpeed(); }

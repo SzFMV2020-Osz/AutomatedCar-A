@@ -1,9 +1,9 @@
 
 public interface IReadOnlyPowertrainPacket
 {
-   int _x {get;}
+   int _X {get;}
 
-   int _y {get;}
+   int _Y {get;}
    
    double Speed {get;}
 
