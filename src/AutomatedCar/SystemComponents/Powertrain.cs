@@ -22,7 +22,7 @@
 
         public override void Process()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();            
         }
 
         public void VectorCalculator()
