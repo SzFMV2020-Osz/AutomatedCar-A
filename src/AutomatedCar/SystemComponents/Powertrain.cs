@@ -1,10 +1,10 @@
-﻿namespace AutomatedCar.Models
+﻿namespace AutomatedCar.SystemComponents
 {
     using System;
     using System.Collections.Generic;
     using System.Text;
 
-    public class Powertrain
+    public class Powertrain 
     {
         private double speed;
         private double steering;
