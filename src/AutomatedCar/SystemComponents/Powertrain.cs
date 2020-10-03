@@ -4,20 +4,26 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class Powertrain 
+    public class Powertrain : SystemComponent
     {
         private double speed;
         private double steering;
         private Motor motor;
 
-        public Powertrain()
+        public Powertrain(VirtualFunctionBus virtualFunctionBus) : base(virtualFunctionBus)
         {
+            virtualFunctionBus.RegisterComponent(this);
             this.motor = new Motor();
         }
 
         public double Speed { get => this.speed; set => this.speed = this.motor.GasPedalToSpeed(); }
 
         private double Steering { get => this.steering; set => this.steering = this.SteeringWheel(); }
+
+        public override void Process()
+        {
+            throw new NotImplementedException();
+        }
 
         public void VectorCalculator()
         {
