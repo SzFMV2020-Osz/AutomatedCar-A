@@ -7,6 +7,7 @@ namespace AutomatedCar.Models
     {
         private VirtualFunctionBus virtualFunctionBus;
         private HumanMachineInterface humanMachineInterface;
+        private Powertrain powertrain;
         private DummySensor dummySensor;
 
         public AutomatedCar(int x, int y, string filename)
@@ -14,6 +15,7 @@ namespace AutomatedCar.Models
         {
             this.virtualFunctionBus = new VirtualFunctionBus();
             this.humanMachineInterface = new HumanMachineInterface(this.virtualFunctionBus);
+            this.powertrain = new Powertrain(this.virtualFunctionBus);
             this.dummySensor = new DummySensor(this.virtualFunctionBus);
             this.Brush = new SolidColorBrush(Color.Parse("red"));
         }

@@ -5,9 +5,9 @@ namespace AutomatedCar.SystemComponents.Packets
         private int _x ;
 
         private int _y;
-    
+
         private double speed;
-        
+
         private int rpm;
 
         public int _X {get; set;}
@@ -17,6 +17,5 @@ namespace AutomatedCar.SystemComponents.Packets
         public double Speed {get; set;}
 
         public int RPM {get; set;}
-
     }
 }

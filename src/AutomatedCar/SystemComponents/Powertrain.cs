@@ -3,17 +3,28 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using AutomatedCar.SystemComponents.Packets;
 
     public class Powertrain : SystemComponent
     {
+        private HMIPacket hmiPacket;
+        private PowertrainPacket powertrainPacket;
+
         private double speed;
         private double steering;
         private Motor motor;
 
-        public Powertrain(VirtualFunctionBus virtualFunctionBus) : base(virtualFunctionBus)
+        public Powertrain(VirtualFunctionBus virtualFunctionBus)
+            : base(virtualFunctionBus)
         {
             this.motor = new Motor();
-            virtualFunctionBus.RegisterComponent(this); 
+            this.virtualFunctionBus = virtualFunctionBus;
+            virtualFunctionBus.RegisterComponent(this);
+
+            this.hmiPacket = new HMIPacket();
+            this.powertrainPacket = new PowertrainPacket();
+            virtualFunctionBus.HMIPacket = this.hmiPacket;
+            virtualFunctionBus.PowertrainPacket = this.powertrainPacket;
         }
 
         public double Speed { get => this.speed; set => this.speed = this.motor.GasPedalToSpeed(); }
@@ -22,7 +33,7 @@
 
         public override void Process()
         {
-            throw new NotImplementedException();            
+            throw new NotImplementedException();
         }
 
         public void VectorCalculator()
