@@ -18,18 +18,39 @@
 
         public int AutomaticShiftGear { get => this.automaticShiftGear; set => this.automaticShiftGear = value; }
 
-        public int GasPedalToSpeed()
+        /// <summary>
+        /// Converts the pedalpositions to speed. Max speed = 200.
+        /// </summary>
+        /// <param name="gasP"> Gaspedal position. </param>
+        /// <param name="breakP"> Breakpedal position. </param>
+        /// <returns> Returns speed. </returns>
+        public int GasPedalToSpeed(double gasP, double breakP) // better name would be: "PedalsToSpeed"
         {
-            return 0;
+            if (gasP - breakP < 0)
+            {
+                double s = (gasP - breakP) * -1;
+                return (int)this.NthRoot(s, 1.7) * -200;
+            }
+            else
+            {
+                return (int)this.NthRoot(gasP - breakP, 1.7) * 200;
+            }
+        }
+
+        /// <summary>
+        /// Calculates Nth Root of double value.
+        /// </summary>
+        /// <param name="a"> The value.</param>
+        /// <param name="n"> Nth root.</param>
+        /// <returns>Teturn the nth root.</returns>
+        private double NthRoot(double a, double n)
+        {
+            return Math.Pow(a, 1.0 / n);
         }
 
         private int CheckRpm()
         {
             return 0;
-        }
-
-        private void BreakPedalAction()
-        {
         }
     }
 }
