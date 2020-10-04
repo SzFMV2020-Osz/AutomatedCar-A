@@ -10,6 +10,6 @@ namespace AutomatedCar.Models
             this.ZIndex = 1;
         }
 
-        private Polygon Wood { get; set; }
+        public Polygon Wood { get; set; }
     }
 }
