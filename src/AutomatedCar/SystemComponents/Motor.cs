@@ -6,23 +6,19 @@
 
     public class Motor
     {
-        private int rpm;
         private double gasPedal;
         private double breakPedal;
         private Gears gearPosition;
-        private int automaticShiftGear;
 
-        public int Rpm { get => this.rpm; set => this.rpm = this.CheckRpm(); }
+        public int Rpm { get => this.CheckRpm(); }
+
+        public double GasPedal { get => this.gasPedal; set => this.gasPedal = value; }
+
+        public double BreakPedal { get => this.breakPedal; set => this.breakPedal = value; }
 
         public Gears GearPosition { get => this.gearPosition; set => this.gearPosition = value; }
 
-        public int AutomaticShiftGear { get => this.automaticShiftGear; set => this.automaticShiftGear = value; }
-
-        /// <summary>
-        /// Converts the pedalpositions to speed. Max speed = 200.
-        /// </summary>
-        /// <returns> Returns speed. </returns>
-        public int GasPedalToSpeed() // better name would be: "PedalsToSpeed"
+        public int PedalsToSpeed()
         {
             if (this.gasPedal - this.breakPedal < 0)
             {
@@ -35,12 +31,6 @@
             }
         }
 
-        /// <summary>
-        /// Calculates Nth Root of double value.
-        /// </summary>
-        /// <param name="a"> The value.</param>
-        /// <param name="n"> Nth root.</param>
-        /// <returns>Teturn the nth root.</returns>
         private double NthRoot(double a, double n)
         {
             return Math.Pow(a, 1.0 / n);

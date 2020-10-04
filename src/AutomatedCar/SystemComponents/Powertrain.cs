@@ -9,10 +9,11 @@
     {
         private IReadOnlyHMIPacket hmiPacket;
         private PowertrainPacket powertrainPacket;
-
-        private double speed;
-        private double steering;
         private Motor motor;
+
+        private double steeringRotation;
+        private int x;
+        private int y;
 
         public Powertrain(VirtualFunctionBus virtualFunctionBus)
             : base(virtualFunctionBus)
@@ -26,18 +27,29 @@
             virtualFunctionBus.PowertrainPacket = this.powertrainPacket;
         }
 
-        public double Speed { get => this.speed; set => this.speed = this.motor.GasPedalToSpeed(); }
+        public double SteeringRotation { get => this.steeringRotation; set => this.steeringRotation = value; }
 
-        private double Steering { get => this.steering; set => this.steering = this.SteeringWheel(); }
+        public double Speed { get => this.motor.PedalsToSpeed(); }
+
+        private double Steering { get => this.SteeringWheel();  }
 
         public override void Process()
         {
-            throw new NotImplementedException();
+            this.motor.GasPedal = this.hmiPacket.Gaspedal;
+            this.motor.BreakPedal = this.hmiPacket.Breakpedal;
+            this.motor.GearPosition = this.hmiPacket.Gear;
+
+            this.SteeringRotation = this.hmiPacket.Steering;
+
+            this.powertrainPacket._X = this.x;
+            this.powertrainPacket._Y = this.y;
+            this.powertrainPacket.Speed = this.Speed;
+            this.powertrainPacket.RPM = this.motor.Rpm;
         }
 
         public void VectorCalculator()
         {
-            // use: motor.GearPosition, this.Speed, this.Steering
+            // use: this.motor.GearPosition, this.Speed, this.Steering
         }
 
         private void EvaluateInput()
@@ -46,6 +58,7 @@
 
         private double SteeringWheel()
         {
+            // use: this.SteeringRotation
             return 0;
         }
     }
