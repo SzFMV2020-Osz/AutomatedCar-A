@@ -7,7 +7,7 @@
 
     public class Powertrain : SystemComponent
     {
-        private HMIPacket hmiPacket;
+        private IReadOnlyHMIPacket hmiPacket;
         private PowertrainPacket powertrainPacket;
 
         private double speed;
@@ -19,11 +19,10 @@
         {
             this.motor = new Motor();
             this.virtualFunctionBus = virtualFunctionBus;
-            virtualFunctionBus.RegisterComponent(this);
+            this.virtualFunctionBus.RegisterComponent(this);
 
-            this.hmiPacket = new HMIPacket();
+            this.hmiPacket = this.virtualFunctionBus.HMIPacket;
             this.powertrainPacket = new PowertrainPacket();
-            virtualFunctionBus.HMIPacket = this.hmiPacket;
             virtualFunctionBus.PowertrainPacket = this.powertrainPacket;
         }
 
