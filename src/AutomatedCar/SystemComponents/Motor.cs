@@ -21,19 +21,17 @@
         /// <summary>
         /// Converts the pedalpositions to speed. Max speed = 200.
         /// </summary>
-        /// <param name="gasP"> Gaspedal position. </param>
-        /// <param name="breakP"> Breakpedal position. </param>
         /// <returns> Returns speed. </returns>
-        public int GasPedalToSpeed(double gasP, double breakP) // better name would be: "PedalsToSpeed"
+        public int GasPedalToSpeed() // better name would be: "PedalsToSpeed"
         {
-            if (gasP - breakP < 0)
+            if (this.gasPedal - this.breakPedal < 0)
             {
-                double s = (gasP - breakP) * -1;
+                double s = (this.gasPedal - this.breakPedal) * -1;
                 return (int)this.NthRoot(s, 1.7) * -200;
             }
             else
             {
-                return (int)this.NthRoot(gasP - breakP, 1.7) * 200;
+                return (int)this.NthRoot(this.gasPedal - this.breakPedal, 1.7) * 200;
             }
         }
 
