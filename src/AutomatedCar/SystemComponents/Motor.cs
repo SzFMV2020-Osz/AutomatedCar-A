@@ -38,7 +38,61 @@
 
         private int CheckRpm()
         {
-            return 0;
+            if (gearPosition == Gears.D)
+            {
+                if (PedalsToSpeed() == 0)
+                {
+                    return 1000;
+                }
+                else if (PedalsToSpeed() <= 10)
+                {
+                    return 1000 + PedalsToSpeed() * 85;
+                }
+                else if (PedalsToSpeed() == 11)
+                {
+                    return 1100;
+                }
+                else if (PedalsToSpeed() > 11 && PedalsToSpeed() <= 25)
+                {
+                    return 1100 + PedalsToSpeed() * 30;
+                }
+                else if (PedalsToSpeed() == 26)
+                {
+                    return 1200;
+                }
+                else if (PedalsToSpeed() > 26 && PedalsToSpeed() <= 40)
+                {
+                    return 1200 + PedalsToSpeed() * 15;
+                }
+                else if (PedalsToSpeed() == 41)
+                {
+                    return 1300;
+                }
+                else if (PedalsToSpeed() > 41 && PedalsToSpeed() <= 60)
+                {
+                    return 1300 + PedalsToSpeed() * 14;
+                }
+                else if (PedalsToSpeed() == 61)
+                {
+                    return 1350;
+                }
+                else
+                {                  
+                    return 1350 + PedalsToSpeed() * 23;
+                }
+            }
+            else if (gearPosition == Gears.N)
+            {
+                return 1000 + (int)gasPedal * 50;
+            }
+            else if (gearPosition == Gears.R)
+            {
+                return 1000 + PedalsToSpeed() * 85;
+            }
+            else
+            {
+                return 1000;
+            }
         }
     }
 }
