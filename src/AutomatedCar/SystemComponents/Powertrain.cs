@@ -15,6 +15,10 @@
         private int x;
         private int y;
 
+        private const double carWheelbase = 130;
+        private const double maximumSteeringAngle =  0.3 * Math.PI; //54°
+
+
         public Powertrain(VirtualFunctionBus virtualFunctionBus)
             : base(virtualFunctionBus)
         {
@@ -59,7 +63,9 @@
         private double SteeringWheel()
         {
             // use: this.SteeringRotation
-            return 0;
+            double steeringAngle = maximumSteeringAngle * (180 - Math.Abs(virtualFunctionBus.HMIPacket.Steering));
+            double tuningCenterDistance = Math.Tan(steeringAngle) * carWheelbase;
+            return tuningCenterDistance;
         }
     }
 }
