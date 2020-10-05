@@ -54,13 +54,13 @@
 
         public bool GeerDown { get => this.geerDown; set => this.geerDown = value; }
 
-        public bool ACC { get => this.acc; set => this.acc = value; }
+        public bool Acc { get => this.acc; set => this.acc = value; }
 
-        public bool ACCDistance { get => this.accDistance; set => this.accDistance = value; }
+        public bool AccDistance { get => this.accDistance; set => this.accDistance = value; }
 
-        public bool ACCSpeedPlus { get => this.accSpeedPlus; set => this.accSpeedPlus = value; }
+        public bool AccSpeedPlus { get => this.accSpeedPlus; set => this.accSpeedPlus = value; }
 
-        public bool ACCSpeedMinus { get => this.accSpeedMinus; set => this.accSpeedMinus = value; }
+        public bool AccSpeedMinus { get => this.accSpeedMinus; set => this.accSpeedMinus = value; }
 
         public bool LaneKeeping { get => this.laneKeeping; set => this.laneKeeping = value; }
 
