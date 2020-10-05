@@ -86,7 +86,6 @@
         }
 
         #region InputHandler
-
         public void InputHandler()
         {
             this.GaspedalKey();
