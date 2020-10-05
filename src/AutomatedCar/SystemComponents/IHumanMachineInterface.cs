@@ -22,7 +22,7 @@ interface IHumanMachineInterface
 
     bool ACCDistance { get; set; }
 
-    bool ACCSpeedPus { get; set; }
+    bool ACCSpeedPlus { get; set; }
 
     bool ACCSpeedMinus { get; set; }
 
