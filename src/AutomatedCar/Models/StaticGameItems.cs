@@ -1,9 +1,9 @@
 namespace AutomatedCar.Models
 {
-    public class StaticGameItems : WorldObject
+    public class StaticGameItems : GameItem
     {
-        public StaticGameItems(int x, int y, string filename, RotationMatrix rotmatrix)
-            : base(x, y, filename)
+
+        public StaticGameItems(int x, int y, string filename, bool iscolliding, RotationMatrix rotmatrix) : base(x, y, filename, iscolliding)
         {
             this.RotMatrix = rotmatrix;
         }

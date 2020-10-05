@@ -10,8 +10,8 @@ namespace AutomatedCarTests.Models
     public class SignTests
     {
         [Theory]
-        [InlineData(10,10,"tree", 1,0,0,1)]
-        public void CreateSignTest(int x, int y, string filename,  double n11, double n12, double n21, double n22)
+        [InlineData(10,10,"tree",true, 1,0,0,1)]
+        public void CreateSignTest(int x, int y, string filename,bool iscolliding,  double n11, double n12, double n21, double n22)
         {
             RotationMatrix rotmat = new RotationMatrix(n11, n12, n21, n22);
             
@@ -19,7 +19,7 @@ namespace AutomatedCarTests.Models
             polygon.Points = new List<Point>();
             polygon.Points.Add(new Point(10,10));
             
-            var sign1 = new Sign(x, y, filename, rotmat,polygon);
+            var sign1 = new Sign(x, y, filename,iscolliding, rotmat,polygon);
             
             Assert.NotNull(sign1);
         }

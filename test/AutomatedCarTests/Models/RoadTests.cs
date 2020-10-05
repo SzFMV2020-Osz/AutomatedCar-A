@@ -9,8 +9,8 @@ namespace AutomatedCarTests.Models
     public class RoadTests
     {
         [Theory]
-        [InlineData(10, 10, "road", 1, 0, 0, 1)]
-        public void CreateRoadTest(int x, int y, string filename, double n11, double n12, double n21, double n22)
+        [InlineData(10, 10, "road", false, 1, 0, 0, 1)]
+        public void CreateRoadTest(int x, int y, string filename,bool iscolliding, double n11, double n12, double n21, double n22)
         {
             RotationMatrix rotmat = new RotationMatrix(n11, n12, n21, n22);
 
@@ -25,7 +25,7 @@ namespace AutomatedCarTests.Models
             poligons.Add(polygon1);
             poligons.Add(polygon2);
 
-            var road1 = new Road(x, y, filename, rotmat, poligons);
+            var road1 = new Road(x, y, filename,iscolliding, rotmat, poligons);
 
             Assert.NotNull(road1);
         }
