@@ -4,9 +4,10 @@ namespace AutomatedCar.Models
 
     public class DynamicGameItem : GameItem
     {
-        public DynamicGameItem(int x, int y, string filename, bool iscolliding, Polygon npcshape) : base(x, y, filename, iscolliding)
+        public DynamicGameItem(int x, int y, string filename, bool iscolliding, Polygon npcshape)
+            : base(x, y, filename, iscolliding)
         {
-            this.NPCShape = npcshape;
+            this.Polygons.Add(npcshape);
         }
     }
 }

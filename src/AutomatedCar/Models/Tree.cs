@@ -4,9 +4,10 @@ namespace AutomatedCar.Models
 
     public class Tree : StaticGameItems
     {
-        public Tree(int x, int y, string filename, bool iscolliding,RotationMatrix rotmatrix, Polygon wood) : base(x, y, filename,iscolliding, rotmatrix)
+        public Tree(int x, int y, string filename, bool iscolliding, RotationMatrix rotmatrix, Polygon wood)
+            : base(x, y, filename,iscolliding, rotmatrix)
         {
-            this.Wood = wood;
+            this.Polygons.Add(wood);
             this.ZIndex = 1;
         }
     }

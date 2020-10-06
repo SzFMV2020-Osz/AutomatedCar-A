@@ -5,9 +5,10 @@ namespace AutomatedCar.Models
 
     public class Road : StaticGameItems
     {
-        public Road(int x, int y, string filename, bool iscolliding,RotationMatrix rotmatrix, List<Polygon>  roadplace) : base(x, y, filename,iscolliding, rotmatrix)
+        public Road(int x, int y, string filename, bool iscolliding, RotationMatrix rotmatrix, List<Polygon> roadplace)
+            : base(x, y, filename, iscolliding, rotmatrix)
         {
-            this.RoadPlace = roadplace;
+            this.Polygons.AddRange(roadplace);
         }
     }
 }
