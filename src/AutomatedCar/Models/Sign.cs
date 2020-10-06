@@ -8,7 +8,5 @@ namespace AutomatedCar.Models
         {
             this.Bollard = bollard;
         }
-        
-        public Polygon Bollard { get; set; }
     }
 }

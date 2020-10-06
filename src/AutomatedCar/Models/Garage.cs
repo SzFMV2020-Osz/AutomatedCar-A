@@ -8,7 +8,5 @@ namespace AutomatedCar.Models
         {
             this.GaragePlace = garageplace;
         }
-
-        public Polygon GaragePlace { get; set; }
     }
 }

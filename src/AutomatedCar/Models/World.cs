@@ -1,5 +1,6 @@
 ﻿namespace AutomatedCar.Models
 {
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using ReactiveUI;
 

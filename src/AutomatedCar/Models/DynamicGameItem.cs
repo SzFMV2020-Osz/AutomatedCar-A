@@ -8,7 +8,5 @@ namespace AutomatedCar.Models
         {
             this.NPCShape = npcshape;
         }
-
-        public Polygon NPCShape { get; set; }
     }
 }

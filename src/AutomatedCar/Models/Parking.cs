@@ -9,7 +9,5 @@ namespace AutomatedCar.Models
         {
             this.ParkingPlace = parkingplace;
         }
-        
-        public List<Polygon> ParkingPlace { get; set; }
     }
 }
