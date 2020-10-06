@@ -37,5 +37,10 @@ namespace AutomatedCar.Models
         {
             this.virtualFunctionBus.Stop();
         }
+
+        public void InputHandler()
+        {
+            humanMachineInterface.InputHandler();
+        }
     }
 }

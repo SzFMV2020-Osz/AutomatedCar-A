@@ -3,8 +3,16 @@ using Xunit;
 
 namespace Tests.SystemComponents.Packets
 {
-    public class HMIPacketTests : HMIPacketTestBase
+    public class HMIPacketTests
     {
+        HMIPacket hmiPacket;
+
+        public  HMIPacketTests()
+        {
+            hmiPacket = new HMIPacket();
+            hmiPacket.Sign = "";
+        }
+
         [Fact]
         public void GaspedalExsits()
         {
