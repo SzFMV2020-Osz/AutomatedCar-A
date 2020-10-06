@@ -18,13 +18,13 @@ interface IHumanMachineInterface
 
     bool GeerDown { get; set; }
 
-    bool ACC { get; set; }
+    bool Acc { get; set; }
 
-    bool ACCDistance { get; set; }
+    bool AccDistance { get; set; }
 
-    bool ACCSpeedPus { get; set; }
+    bool AccSpeedPlus { get; set; }
 
-    bool ACCSpeedMinus { get; set; }
+    bool AccSpeedMinus { get; set; }
 
     bool LaneKeeping { get; set; }
 

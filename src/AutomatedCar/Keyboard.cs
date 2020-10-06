@@ -3,7 +3,7 @@ namespace AutomatedCar
     using System.Collections.Generic;
     using Avalonia.Input;
 
-    static class Keyboard
+    public static class Keyboard
     {
         public static readonly HashSet<Key> Keys = new HashSet<Key>();
 

@@ -3,8 +3,15 @@ using Xunit;
 
 namespace Tests.SystemComponents.Packets
 {
-    public class DebugPacketTests : DebugPacketTestBase
+    public class DebugPacketTests
     {
+        DebugPacket debugPacket;
+
+        public DebugPacketTests()
+        {
+            debugPacket = new DebugPacket();
+        }
+
         [Fact]
         public void UltrasoundSensorExsits()
         {            
