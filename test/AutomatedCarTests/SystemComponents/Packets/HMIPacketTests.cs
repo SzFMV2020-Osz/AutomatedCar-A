@@ -1,4 +1,5 @@
-﻿using AutomatedCar.SystemComponents.Packets;
+﻿using AutomatedCar.SystemComponents;
+using AutomatedCar.SystemComponents.Packets;
 using Xunit;
 
 namespace Tests.SystemComponents.Packets
@@ -6,13 +7,16 @@ namespace Tests.SystemComponents.Packets
     public class HMIPacketTests
     {
         HMIPacket hmiPacket;
+        HumanMachineInterface hmi;
 
         public  HMIPacketTests()
         {
             hmiPacket = new HMIPacket();
             hmiPacket.Sign = "";
+            hmi = new HumanMachineInterface(new VirtualFunctionBus());
         }
 
+        #region Existence tests
         [Fact]
         public void GaspedalExsits()
         {
@@ -82,5 +86,46 @@ namespace Tests.SystemComponents.Packets
         {
             Assert.Equal(string.Empty, hmiPacket.Sign);
         }
+        #endregion
+
+        #region VariableChangeTests
+        [Theory]
+        [InlineData(0, Gears.P)]
+        [InlineData(1, Gears.R)]
+        [InlineData(2, Gears.N)]
+        [InlineData(3, Gears.D)]
+        [InlineData(4, Gears.D)]
+        public void WithNumerousGearshiftsUpwardGearIncreasesTillDrivemode(int gearshiftsUp, Gears gear)
+        {
+            hmi.GeerUp = true;
+            hmi.GeerDown = false;
+            for (int i = 0; i < gearshiftsUp; i++)
+            {
+                hmiPacket.GearCalculate(); 
+            }
+            Assert.Equal(gear, hmiPacket.Gear);
+        }
+
+        [Theory]
+        [InlineData(3, Gears.P)]
+        [InlineData(2, Gears.R)]
+        [InlineData(1, Gears.N)]
+        [InlineData(0, Gears.D)]
+        [InlineData(4, Gears.P)]
+        public void WithNumerousGearshiftsDownwardGearDecreasesTillParkingmode(int gearshiftsDown, Gears gear)
+        {
+            hmi.GeerDown = true;
+            hmi.GeerUp = false;
+            hmiPacket.Gear = Gears.D;
+            for (int i = 0; i < gearshiftsDown; i++)
+            {
+                hmiPacket.GearCalculate();
+            }
+            Assert.Equal(gear, hmiPacket.Gear);
+        }
+
+
+
+        #endregion
     }
 }

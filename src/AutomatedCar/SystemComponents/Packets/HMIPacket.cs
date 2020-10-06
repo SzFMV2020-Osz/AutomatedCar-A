@@ -38,5 +38,9 @@
         public bool TurnSignalLeft { get => this.turnSignalLeft; set => this.turnSignalLeft = value; }
 
         public string Sign { get => this.sign; set => this.sign = value; }
+
+        public void GearCalculate()
+        {
+        }
     }
 }
