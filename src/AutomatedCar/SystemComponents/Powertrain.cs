@@ -7,8 +7,8 @@
 
     public class Powertrain : SystemComponent
     {
-        private const double maximumSteeringAngle =  0.3 * Math.PI; //54°
-        private const double carWheelbase = 130;
+        private const double MaximumSteeringAngle = 0.3 * Math.PI; // 54°
+        private const double CarWheelbase = 130;
 
         private IReadOnlyHMIPacket hmiPacket;
         private PowertrainPacket powertrainPacket;
@@ -62,8 +62,8 @@
         private double SteeringWheel()
         {
             // use: this.SteeringRotation
-            double steeringAngle = maximumSteeringAngle * Math.Abs(virtualFunctionBus.HMIPacket.Steering);
-            double tuningCenterDistance = Math.Tan(steeringAngle) * carWheelbase;
+            double steeringAngle = MaximumSteeringAngle * (90 - Math.Abs(virtualFunctionBus.HMIPacket.Steering));
+            double tuningCenterDistance = Math.Tan(steeringAngle) * CarWheelbase;
             return tuningCenterDistance;
         }
     }
