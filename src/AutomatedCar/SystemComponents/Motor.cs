@@ -20,6 +20,8 @@
 
         public int PedalsToSpeed()
         {
+            this.gasPedal = this.gasPedal / 100;
+            this.breakPedal = this.breakPedal / 100;
             if (this.gasPedal - this.breakPedal < 0)
             {
                 double s = (this.gasPedal - this.breakPedal) * -1;
