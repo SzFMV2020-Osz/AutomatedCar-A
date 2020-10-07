@@ -155,11 +155,11 @@ namespace AutomatedCar.SystemComponents.Packets
         {
             if (isGasPedalDown)
             {
-                Increase(ref this.gaspedal, 10 / 6);
+                Increase(ref this.gaspedal, 1000);
             }
             else
             {
-                Decrease(ref this.gaspedal, 10 / 6);
+                Decrease(ref this.gaspedal, 1000);
             }
         }
 
@@ -167,7 +167,7 @@ namespace AutomatedCar.SystemComponents.Packets
         {
             if (isBrakePedalDown)
             {
-                Increase(ref this.gaspedal, 1000);
+                Increase(ref this.gaspedal, 500);
             }
             else
             {
