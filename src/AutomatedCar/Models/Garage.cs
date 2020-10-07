@@ -4,11 +4,10 @@ namespace AutomatedCar.Models
 
     public class Garage : StaticGameItems
     {
-        public Garage(int x, int y, string filename,bool iscolliding, RotationMatrix rotmatrix, Polygon garageplace) : base(x, y, filename, iscolliding,rotmatrix)
+        public Garage(int x, int y, string filename, bool iscolliding, RotationMatrix rotmatrix, Polygon garageplace)
+            : base(x, y, filename, iscolliding, rotmatrix)
         {
-            this.GaragePlace = garageplace;
+            this.Polygons.Add(garageplace);
         }
-
-        public Polygon GaragePlace { get; set; }
     }
 }

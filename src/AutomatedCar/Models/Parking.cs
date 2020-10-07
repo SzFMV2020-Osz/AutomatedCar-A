@@ -5,11 +5,10 @@ namespace AutomatedCar.Models
 
     public class Parking : StaticGameItems
     {
-        public Parking(int x, int y, string filename, bool iscolliding,RotationMatrix rotmatrix, List<Polygon> parkingplace) : base(x, y, filename,iscolliding, rotmatrix)
+        public Parking(int x, int y, string filename, bool iscolliding, RotationMatrix rotmatrix, List<Polygon> parkingplace)
+            : base(x, y, filename, iscolliding, rotmatrix)
         {
-            this.ParkingPlace = parkingplace;
+            this.Polygons.AddRange(parkingplace);
         }
-        
-        public List<Polygon> ParkingPlace { get; set; }
     }
 }
