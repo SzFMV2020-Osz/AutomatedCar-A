@@ -154,29 +154,29 @@ namespace AutomatedCar.SystemComponents.Packets
 
         public void GasPedalIncrease(double tick, int limit = 100)
         {
-            Increase(tick, Gaspedal, limit);
+            Increase(tick, ref this.gaspedal, limit);
         }
 
         public void GasPedalDecrease(double tick, int limit = 100)
         {
-            Decrease(tick, Gaspedal, limit);
+            Decrease(tick, ref this.gaspedal, limit);
         }
 
         public void BrakePedalIncrease(double tick, int limit = 100)
         {
-            Increase(tick, Brakepedal, limit);
+            Increase(tick, ref this.breakpedal, limit);
         }
 
         public void BrakePedalDecrease(double tick, int limit = 100)
         {
-            Decrease(tick, Brakepedal, limit);
+            Decrease(tick, ref this.breakpedal, limit);
         }
 
         private void Increase(double tick, ref double pedal, int limit = 100)
         {
             do
             {
-                Thread.Sleep(1000 / tick);
+                Thread.Sleep(Convert.ToInt32(1000 / tick));
                 pedal++;
             } while (pedal != limit);
         }
@@ -185,7 +185,7 @@ namespace AutomatedCar.SystemComponents.Packets
         {
             do
             {
-                Thread.Sleep(1000 / tick);
+                Thread.Sleep(Convert.ToInt32(1000 / tick));
                 pedal--;
             } while (pedal != limit);
         }
