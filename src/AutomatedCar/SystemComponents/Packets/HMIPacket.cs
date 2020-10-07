@@ -155,11 +155,11 @@ namespace AutomatedCar.SystemComponents.Packets
         {
             if (isGasPedalDown)
             {
-                Increase(ref this.gaspedal);
+                Increase(ref this.gaspedal, 10 / 6);
             }
             else
             {
-                Decrease(ref this.gaspedal);
+                Decrease(ref this.gaspedal, 10 / 6);
             }
         }
 
@@ -167,27 +167,27 @@ namespace AutomatedCar.SystemComponents.Packets
         {
             if (isBrakePedalDown)
             {
-                Increase(ref this.gaspedal);
+                Increase(ref this.gaspedal, 1000);
             }
             else
             {
-                Decrease(ref this.gaspedal);
+                Decrease(ref this.gaspedal, 500);
             }
         }
 
-        private void Increase(ref double pedal)
+        private void Increase(ref double pedal, double millisecondsToReachMaxValue)
         {
             if (pedal < 100)
             {
-                pedal += 1 / 60;
+                pedal += 10 / (millisecondsToReachMaxValue / 1000 * 6);
             }
         }
 
-        private void Decrease(ref double pedal)
+        private void Decrease(ref double pedal, double millisecondsToReachMaxValue)
         {
             if (pedal > 0)
             {
-                pedal -= 1 / 60;
+                pedal -= 10 / (millisecondsToReachMaxValue / 1000 * 6);
             }
         }
     }
