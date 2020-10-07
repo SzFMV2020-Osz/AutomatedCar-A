@@ -83,6 +83,13 @@
 
         public override void Process()
         {
+            this.hmiPacket.GearCalculate(this.geerUp, this.geerDown);
+            this.hmiPacket.AccSet(this.acc);
+            this.hmiPacket.AccDistanceSet(this.accDistance);
+            this.hmiPacket.AccSpeedSet(this.accSpeedPlus, this.accSpeedMinus);
+
+            this.hmiPacket.HandleGasPedal(this.gaspedalDown);
+            this.hmiPacket.HandleBrakePedal(this.breakpedalDown);
         }
 
         #region InputHandler
