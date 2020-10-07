@@ -1,6 +1,5 @@
 ﻿using Avalonia.OpenGL;
 using System;
-using System.Threading;
 
 namespace AutomatedCar.SystemComponents.Packets
 {
@@ -178,7 +177,7 @@ namespace AutomatedCar.SystemComponents.Packets
 
         private void Increase(ref double pedal)
         {
-            while (pedal != 100)
+            if (pedal < 100)
             {
                 pedal += 1 / 60;
             }
@@ -186,7 +185,7 @@ namespace AutomatedCar.SystemComponents.Packets
 
         private void Decrease(ref double pedal)
         {
-            while (pedal != 0)
+            if (pedal > 0)
             {
                 pedal -= 1 / 60;
             }
