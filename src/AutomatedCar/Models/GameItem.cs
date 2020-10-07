@@ -9,6 +9,7 @@ namespace AutomatedCar.Models
             : base(x, y, filename)
         {
             this.IsColliding = iscolliding;
+            this.Polygons = new List<Polygon>();
         }
 
         public bool IsColliding { get; set; }
