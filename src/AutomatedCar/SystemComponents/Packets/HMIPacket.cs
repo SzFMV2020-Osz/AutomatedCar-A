@@ -152,31 +152,31 @@ namespace AutomatedCar.SystemComponents.Packets
             }
         }
 
-        public void HandleGasPedal(double tick, bool isGasPedalDown)
+        public void HandleGasPedal(bool isGasPedalDown)
         {
             if (isGasPedalDown)
             {
-                Increase(tick, ref this.gaspedal);
+                Increase(ref this.gaspedal);
             }
             else
             {
-                Decrease(tick, ref this.gaspedal);
+                Decrease(ref this.gaspedal);
             }
         }
 
-        public void HandleBrakePedal(double tick, bool isBrakePedalDown)
+        public void HandleBrakePedal(bool isBrakePedalDown)
         {
             if (isBrakePedalDown)
             {
-                Increase(tick, ref this.gaspedal);
+                Increase(ref this.gaspedal);
             }
             else
             {
-                Decrease(tick, ref this.gaspedal);
+                Decrease(ref this.gaspedal);
             }
         }
 
-        private void Increase(double tick, ref double pedal)
+        private void Increase(ref double pedal)
         {
             while (pedal != 100)
             {
@@ -184,7 +184,7 @@ namespace AutomatedCar.SystemComponents.Packets
             }
         }
 
-        private void Decrease(double tick, ref double pedal)
+        private void Decrease(ref double pedal)
         {
             while (pedal != 0)
             {
