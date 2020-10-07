@@ -9,10 +9,6 @@
     /// </summary>
     public interface IWorldVisualisation
     {
-        /// <summary>
-        /// Parameter to hold world objects.
-        /// </summary>
-        List<WorldObject> GameItems { get; }
 
         /// <summary>
         /// Return world objects
