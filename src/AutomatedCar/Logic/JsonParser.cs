@@ -14,47 +14,38 @@ namespace AutomatedCar.Logic
     public class JsonParser
     {
         //List<Models.WorldObject> GameItems;
-        Models.World world;
+        World world;
         IList<JToken> ObjectList;
         IList<JToken> PolygonList;
         List<List<Polygon>> ParsedPolygonList;
+        List<WorldObject> WorldObjects;
 
-        public JsonParser()
+        public JsonParser(string woJson, string polygonJson)
         {
-            //this.InputJson = inputJson;
-            //GameItems = new List<Models.WorldObject>();
-            world = new Models.World();
-            string readFile;
-            //beolvasás
-            using (StreamReader file = File.OpenText(@"C:\Users\Bence\Documents\AutomatedCar-A\src\AutomatedCar\Assets\test_world_1kmx1km.json"))
-            {
-                readFile = file.ReadToEnd();
-            }
+            this.world = new World();
 
-            JObject UnparsedObjectList = JObject.Parse(readFile);
+            JObject UnparsedObjectList = JObject.Parse(woJson);
+            JObject UnparsedPolygonList = JObject.Parse(polygonJson);
+
             //world szélessség, magasság beállítása
             world.Height = int.Parse(UnparsedObjectList["height"].ToString());
             world.Width = int.Parse(UnparsedObjectList["width"].ToString());
+
             //Objectek átadása a listának
             this.ObjectList = UnparsedObjectList["objects"].Children().ToList();
-
-            //polygonok beolvasása
-            using (StreamReader file = File.OpenText(@"C:\Users\Bence\Documents\AutomatedCar-A\src\AutomatedCar\Assets\worldobject_polygons.json"))
-            {
-                readFile = file.ReadToEnd();
-            }
-
-            JObject UnparsedPolygonList = JObject.Parse(readFile);
+            
             //Polygon Objectek átadása a listának
             this.PolygonList = UnparsedPolygonList["objects"].Children().ToList();
 
             //Feltöltjük a polygonokkal a polygon listát
             this.ParsedPolygonList = PolygonLoader();
-            //GameItems();
+
+            //Feltöltjük a worldobjectekkel a wo listát ( plusz hozzáadjuk a world példányhoz is a wo kat)
+            this.WorldObjects = ItemLoader();
         }
 
 
-        public List<Models.WorldObject> ItemLoader()
+        public List<WorldObject> ItemLoader()
         {
             List<Models.WorldObject> list = new List<Models.WorldObject>();
             foreach (JToken obj in this.ObjectList)
@@ -174,7 +165,7 @@ namespace AutomatedCar.Logic
                         Circle bollard = new Circle(x, y, type, 100);   //circle radiusa mennyi?
                         world.AddObject(bollard);
                         break;
-
+                    //van még egy boundary nevű cucc is, azt kikéne deríteni hogy micsoda?
                 }
 
 
