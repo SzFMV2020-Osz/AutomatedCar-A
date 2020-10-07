@@ -10,9 +10,10 @@ namespace Tests.Models
 {
     public class WorldTests
     {
+        World world;
         public WorldTests()
         {
-            World world = World.Instance;
+            world = World.Instance;
             Polygon woodPoly = new Polygon();
             woodPoly.Points = new List<Point>();
             woodPoly.Points.Add(new Point(92, 81));
