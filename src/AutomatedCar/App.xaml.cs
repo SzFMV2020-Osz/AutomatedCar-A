@@ -6,6 +6,7 @@ namespace AutomatedCar
     using AutomatedCar.Models;
     using AutomatedCar.ViewModels;
     using AutomatedCar.Views;
+    using AutomatedCar.Logic;
     using Avalonia;
     using Avalonia.Controls.ApplicationLifetimes;
     using Avalonia.Markup.Xaml;
@@ -23,35 +24,33 @@ namespace AutomatedCar
         {
             if (this.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly()
-                    .GetManifestResourceStream($"AutomatedCar.Assets.worldobject_polygons.json"));
-                string json_text = reader.ReadToEnd();
-                dynamic stuff = JObject.Parse(json_text);
-                var points = new List<Point>();
-                foreach (var i in stuff["objects"][0]["polys"][0]["points"])
-                {
-                    points.Add(new Point(i[0].ToObject<int>(), i[1].ToObject<int>()));
-                }
+                //string json_text = reader.readtoend();
+                //dynamic stuff = jobject.parse(json_text);
+                //var points = new list<point>();
+                //foreach (var i in stuff["objects"][0]["polys"][0]["points"])
+                //{
+                //    points.add(new point(i[0].toobject<int>(), i[1].toobject<int>()));
+                //}
 
-                var geom = new PolylineGeometry(points, false);
+                //var geom = new polylinegeometry(points, false);
 
-                var world = World.Instance;
-                world.Width = 2000;
-                world.Height = 1000;
+                JsonParser parser = new JsonParser($"AutomatedCar.Assets.test_world.json", $"AutomatedCar.Assets.worldobject_polygons.json");
 
-                var circle = new Circle(400, 200, "circle.png", 20);
-                circle.Width = 40;
-                circle.Height = 40;
-                circle.ZIndex = 2;
-                world.AddObject(circle);
+                var world = parser.CreateWorld();
 
-                var controlledCar = new Models.AutomatedCar(50, 50, "car_1_white.png");
-                controlledCar.Width = 108;
-                controlledCar.Height = 240;
-                controlledCar.Geometry = geom;
-                world.AddObject(controlledCar);
-                world.ControlledCar = controlledCar;
-                controlledCar.Start();
+                //var circle = new Circle(400, 200, "circle.png", 20);
+                //circle.Width = 40;
+                //circle.Height = 40;
+                //circle.ZIndex = 2;
+                //world.AddObject(circle);
+
+                //var controlledCar = new Models.AutomatedCar(50, 50, "car_1_white.png");
+                //controlledCar.Width = 108;
+                //controlledCar.Height = 240;
+                //controlledCar.Geometry = geom;
+                //world.AddObject(controlledCar);
+                //world.ControlledCar = controlledCar;
+                //controlledCar.Start();
 
                 var game = new Game(world);
                 game.Start();
