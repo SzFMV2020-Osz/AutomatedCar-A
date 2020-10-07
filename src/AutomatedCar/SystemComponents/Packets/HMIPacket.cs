@@ -152,42 +152,44 @@ namespace AutomatedCar.SystemComponents.Packets
             }
         }
 
-        public void GasPedalIncrease(double tick, int limit = 100)
+        public void HandleGasPedal(double tick, bool isGasPedalDown)
         {
-            Increase(tick, ref this.gaspedal, limit);
-        }
-
-        public void GasPedalDecrease(double tick, int limit = 0)
-        {
-            Decrease(tick, ref this.gaspedal, limit);
-        }
-
-        public void BrakePedalIncrease(double tick, int limit = 100)
-        {
-            Increase(tick, ref this.breakpedal, limit);
-        }
-
-        public void BrakePedalDecrease(double tick, int limit = 0)
-        {
-            Decrease(tick, ref this.breakpedal, limit);
-        }
-
-        private void Increase(double tick, ref double pedal, int limit = 100)
-        {
-            do
+            if (isGasPedalDown)
             {
-                Thread.Sleep(Convert.ToInt32(1000 / tick));
-                pedal++;
-            } while (pedal != limit);
+                Increase(tick, ref this.gaspedal);
+            }
+            else
+            {
+                Decrease(tick, ref this.gaspedal);
+            }
         }
 
-        private void Decrease(double tick, ref double pedal, int limit = 0)
+        public void HandleBrakePedal(double tick, bool isBrakePedalDown)
         {
-            do
+            if (isBrakePedalDown)
             {
-                Thread.Sleep(Convert.ToInt32(1000 / tick));
-                pedal--;
-            } while (pedal != limit);
+                Increase(tick, ref this.gaspedal);
+            }
+            else
+            {
+                Decrease(tick, ref this.gaspedal);
+            }
+        }
+
+        private void Increase(double tick, ref double pedal)
+        {
+            while (pedal != 100)
+            {
+                pedal += 1 / 60;
+            }
+        }
+
+        private void Decrease(double tick, ref double pedal)
+        {
+            while (pedal != 0)
+            {
+                pedal -= 1 / 60;
+            }
         }
     }
 }
