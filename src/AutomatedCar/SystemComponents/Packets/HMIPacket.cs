@@ -1,5 +1,6 @@
 ﻿using Avalonia.OpenGL;
 using System;
+using System.Threading;
 
 namespace AutomatedCar.SystemComponents.Packets
 {
@@ -149,6 +150,44 @@ namespace AutomatedCar.SystemComponents.Packets
             {
                 this.acc = !this.acc;
             }
+        }
+
+        public void GasPedalIncrease(double tick, int limit = 100)
+        {
+            Increase(tick, Gaspedal, limit);
+        }
+
+        public void GasPedalDecrease(double tick, int limit = 100)
+        {
+            Decrease(tick, Gaspedal, limit);
+        }
+
+        public void BrakePedalIncrease(double tick, int limit = 100)
+        {
+            Increase(tick, Brakepedal, limit);
+        }
+
+        public void BrakePedalDecrease(double tick, int limit = 100)
+        {
+            Decrease(tick, Brakepedal, limit);
+        }
+
+        private void Increase(double tick, ref double pedal, int limit = 100)
+        {
+            do
+            {
+                Thread.Sleep(1000 / tick);
+                pedal++;
+            } while (pedal != limit);
+        }
+
+        private void Decrease(double tick, ref double pedal, int limit = 100)
+        {
+            do
+            {
+                Thread.Sleep(1000 / tick);
+                pedal--;
+            } while (pedal != limit);
         }
     }
 }
