@@ -9,6 +9,7 @@ namespace AutomatedCar.Models
             : base(x, y, filename, iscolliding, rotmatrix)
         {
             this.Polygons.AddRange(roadplace);
+            this.IsColliding = iscolliding;
         }
     }
 }

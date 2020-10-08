@@ -1,6 +1,7 @@
 namespace AutomatedCar.Models
 {
     using Avalonia.Controls.Shapes;
+    using System.Collections.Generic;
 
     public class Sign : StaticGameItems
     {
@@ -8,6 +9,7 @@ namespace AutomatedCar.Models
             : base(x, y, filename, iscolliding, rotmatrix)
         {
             this.Polygons.Add(bollard);
+            this.IsColliding = iscolliding;
         }
     }
 }

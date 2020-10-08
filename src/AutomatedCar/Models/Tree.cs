@@ -9,6 +9,7 @@ namespace AutomatedCar.Models
         {
             this.Polygons.Add(wood);
             this.ZIndex = 1;
+            this.IsColliding = iscolliding;
         }
     }
 }
