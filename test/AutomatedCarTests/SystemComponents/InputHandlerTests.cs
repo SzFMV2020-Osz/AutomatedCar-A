@@ -39,8 +39,8 @@ namespace Tests.SystemComponents
             Assert.False(hmi.BreakpedalDown);
             Assert.False(hmi.CameraDebug);
             Assert.False(hmi.GaspedalDown);
-            Assert.False(hmi.GeerDown);
-            Assert.False(hmi.GeerUp);
+            Assert.False(hmi.GearDown);
+            Assert.False(hmi.GearUp);
             Assert.False(hmi.LaneKeeping);
             Assert.False(hmi.ParkingPilot);
             Assert.False(hmi.RadarDebug);
@@ -146,9 +146,9 @@ namespace Tests.SystemComponents
         {
             KeyboardFill();
             Keyboard.Keys.Remove(Key.W);
-            hmi.GeerUpKey();
+            hmi.GearUpKey();
 
-            Assert.False(hmi.GeerUp);
+            Assert.False(hmi.GearUp);
         }
 
         [Fact]
@@ -156,9 +156,9 @@ namespace Tests.SystemComponents
         {
             KeyboardFill();
             Keyboard.Keys.Remove(Key.S);
-            hmi.GeerDownKey();
+            hmi.GearDownKey();
 
-            Assert.False(hmi.GeerDown);
+            Assert.False(hmi.GearDown);
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueAcc()
         {
-            Keyboard.Keys.Add(Key.A);
+            Keyboard.ToggleableKeys.Add(Key.A);
             hmi.AccKey();
 
             Assert.True(hmi.Acc);
@@ -296,7 +296,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueTurnSignalRight()
         {
-            Keyboard.Keys.Add(Key.E);
+            Keyboard.ToggleableKeys.Add(Key.E);
             hmi.TurnSignalRightKey();
 
             Assert.True(hmi.TurnSignalRight);
@@ -305,7 +305,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueTurnSignalLeft()
         {
-            Keyboard.Keys.Add(Key.Q);
+            Keyboard.ToggleableKeys.Add(Key.Q);
             hmi.TurnSignalLeftKey();
 
             Assert.True(hmi.TurnSignalLeft);
@@ -315,24 +315,24 @@ namespace Tests.SystemComponents
         public void WithTheRightKeyPressedTrueGeerUp()
         {
             Keyboard.Keys.Add(Key.W);
-            hmi.GeerUpKey();
+            hmi.GearUpKey();
 
-            Assert.True(hmi.GeerUp);
+            Assert.True(hmi.GearUp);
         }
 
         [Fact]
         public void WithTheRightKeyPressedTrueGeerDown()
         {
             Keyboard.Keys.Add(Key.S);
-            hmi.GeerDownKey();
+            hmi.GearDownKey();
 
-            Assert.True(hmi.GeerDown);
+            Assert.True(hmi.GearDown);
         }
 
         [Fact]
         public void WithTheRightKeyPressedTrueLaneKeeping()
         {
-            Keyboard.Keys.Add(Key.D);
+            Keyboard.ToggleableKeys.Add(Key.D);
             hmi.LaneKeepingKey();
 
             Assert.True(hmi.LaneKeeping);
@@ -341,7 +341,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueParkingPilot()
         {
-            Keyboard.Keys.Add(Key.R);
+            Keyboard.ToggleableKeys.Add(Key.R);
             hmi.ParkingPilotKey();
 
             Assert.True(hmi.ParkingPilot);
@@ -350,7 +350,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueUtrasoundDebug()
         {
-            Keyboard.Keys.Add(Key.U);
+            Keyboard.ToggleableKeys.Add(Key.U);
             hmi.UltrasoundDebugKey();
 
             Assert.True(hmi.UtrasoundDebug);
@@ -360,7 +360,7 @@ namespace Tests.SystemComponents
 
         public void WithTheRightKeyPressedTrueRadarDebug()
         {
-            Keyboard.Keys.Add(Key.I);
+            Keyboard.ToggleableKeys.Add(Key.I);
             hmi.RadarDebugKey();
 
             Assert.True(hmi.RadarDebug);
@@ -369,7 +369,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueCameraDebug()
         {
-            Keyboard.Keys.Add(Key.Z);
+            Keyboard.ToggleableKeys.Add(Key.Z);
             hmi.BoardCameraDebugKey();
 
             Assert.True(hmi.CameraDebug);
