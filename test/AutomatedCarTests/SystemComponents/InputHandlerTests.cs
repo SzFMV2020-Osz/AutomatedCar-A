@@ -260,7 +260,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueAcc()
         {
-            Keyboard.Keys.Add(Key.A);
+            Keyboard.ToggleableKeys.Add(Key.A);
             hmi.AccKey();
 
             Assert.True(hmi.Acc);
@@ -296,7 +296,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueTurnSignalRight()
         {
-            Keyboard.Keys.Add(Key.E);
+            Keyboard.ToggleableKeys.Add(Key.E);
             hmi.TurnSignalRightKey();
 
             Assert.True(hmi.TurnSignalRight);
@@ -305,7 +305,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueTurnSignalLeft()
         {
-            Keyboard.Keys.Add(Key.Q);
+            Keyboard.ToggleableKeys.Add(Key.Q);
             hmi.TurnSignalLeftKey();
 
             Assert.True(hmi.TurnSignalLeft);
@@ -332,7 +332,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueLaneKeeping()
         {
-            Keyboard.Keys.Add(Key.D);
+            Keyboard.ToggleableKeys.Add(Key.D);
             hmi.LaneKeepingKey();
 
             Assert.True(hmi.LaneKeeping);
@@ -341,7 +341,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueParkingPilot()
         {
-            Keyboard.Keys.Add(Key.R);
+            Keyboard.ToggleableKeys.Add(Key.R);
             hmi.ParkingPilotKey();
 
             Assert.True(hmi.ParkingPilot);
