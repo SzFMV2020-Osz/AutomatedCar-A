@@ -269,37 +269,28 @@
 
         public void UltrasoundDebugKey()
         {
-            if (Keyboard.IsKeyDown(Key.U))
+            if (Keyboard.IsToggleableKeyDown(Key.U))
             {
-                this.ultrasoundDebug = true;
-            }
-            else
-            {
-                this.ultrasoundDebug = false;
+                this.ultrasoundDebug = !this.ultrasoundDebug;
+                Keyboard.DeleteToggleableKey(Key.U);
             }
         }
 
         public void BoardCameraDebugKey()
         {
-            if (Keyboard.IsKeyDown(Key.Z))
+            if (Keyboard.IsToggleableKeyDown(Key.Z))
             {
-                this.cameraDebug = true;
-            }
-            else
-            {
-                this.cameraDebug = false;
+                this.cameraDebug = !this.cameraDebug;
+                Keyboard.DeleteToggleableKey(Key.Z);
             }
         }
 
         public void RadarDebugKey()
         {
-            if (Keyboard.IsKeyDown(Key.I))
+            if (Keyboard.IsToggleableKeyDown(Key.I))
             {
-                this.radarDebug = true;
-            }
-            else
-            {
-                this.radarDebug = false;
+                this.radarDebug = !this.radarDebug;
+                Keyboard.DeleteToggleableKey(Key.I);
             }
         }
         #endregion

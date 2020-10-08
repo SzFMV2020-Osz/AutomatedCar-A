@@ -13,6 +13,9 @@ namespace AutomatedCar
             Key.A,
             Key.D,
             Key.R,
+            Key.U,
+            Key.Z,
+            Key.I,
         };
 
         public static readonly HashSet<Key> Keys = new HashSet<Key>();

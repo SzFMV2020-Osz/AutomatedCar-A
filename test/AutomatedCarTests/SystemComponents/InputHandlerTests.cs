@@ -350,7 +350,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueUtrasoundDebug()
         {
-            Keyboard.Keys.Add(Key.U);
+            Keyboard.ToggleableKeys.Add(Key.U);
             hmi.UltrasoundDebugKey();
 
             Assert.True(hmi.UtrasoundDebug);
@@ -360,7 +360,7 @@ namespace Tests.SystemComponents
 
         public void WithTheRightKeyPressedTrueRadarDebug()
         {
-            Keyboard.Keys.Add(Key.I);
+            Keyboard.ToggleableKeys.Add(Key.I);
             hmi.RadarDebugKey();
 
             Assert.True(hmi.RadarDebug);
@@ -369,7 +369,7 @@ namespace Tests.SystemComponents
         [Fact]
         public void WithTheRightKeyPressedTrueCameraDebug()
         {
-            Keyboard.Keys.Add(Key.Z);
+            Keyboard.ToggleableKeys.Add(Key.Z);
             hmi.BoardCameraDebugKey();
 
             Assert.True(hmi.CameraDebug);
