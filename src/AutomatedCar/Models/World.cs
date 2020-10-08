@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Numerics;
     using Avalonia;
     using Avalonia.Controls.Shapes;
     using ReactiveUI;
@@ -43,7 +44,7 @@
         /* A function to check whether point P(x, y) lies 
         inside the triangle formed by A(x1, y1), 
         B(x2, y2) and C(x3, y3) */
-        static bool IsInside(List<Point> triangle, Point target)
+        private static bool IsInside(List<Point> triangle, Point target)
         {
             Point a = triangle[0];
             Point b = triangle[1];
@@ -67,12 +68,12 @@
             return areaFull == (area1 + area2 + area3);
         }
 
-        public List<GameItem> GetWorldObjectsInsideTriangle(List<Point> pointsOfTriangle)
+        public List<WorldObject> GetWorldObjectsInsideTriangle(List<Point> pointsOfTriangle)
         {
-            List<GameItem> objectsInside = new List<GameItem>();
+            List<WorldObject> objectsInside = new List<WorldObject>();
             bool hasBeenAdded = false;
 
-            foreach (GameItem item in this.WorldObjects)
+            foreach (WorldObject item in this.WorldObjects)
             {
                 foreach (Polygon polygon in item.Polygons)
                 {

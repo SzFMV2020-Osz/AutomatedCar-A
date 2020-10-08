@@ -179,7 +179,7 @@ namespace AutomatedCar.Logic
                         this.world.AddObject(tree);
                         break;
                     case "bollard":
-                        Circle bollard = new Circle(x, y, type, 100);   // circle radiusa mennyi?
+                        Circle bollard = new Circle(x, y, type, 100, true);   // circle radiusa mennyi?
                         this.world.AddObject(bollard);
                         break;
 

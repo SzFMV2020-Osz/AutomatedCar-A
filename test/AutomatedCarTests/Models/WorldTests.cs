@@ -47,7 +47,7 @@ namespace Tests.Models
                 new Point(15, 15),
                 new Point(5, 10)
             };
-            List<GameItem> itemsInside = world.GetWorldObjectsInsideTriangle(pointsOfTriangle);
+            List<WorldObject> itemsInside = world.GetWorldObjectsInsideTriangle(pointsOfTriangle);
             Assert.True(itemsInside.Count == 0);
         }
 
@@ -60,7 +60,7 @@ namespace Tests.Models
                 new Point(120, 100),
                 new Point(90, 110)
             };
-            List<GameItem> itemsInside = world.GetWorldObjectsInsideTriangle(pointsOfTriangle);
+            List<WorldObject> itemsInside = world.GetWorldObjectsInsideTriangle(pointsOfTriangle);
             Assert.True(itemsInside.Count == 1);
         }
     }

@@ -1,6 +1,8 @@
 namespace AutomatedCar.Models
 {
+    using Avalonia.Controls.Shapes;
     using ReactiveUI;
+    using System.Collections.Generic;
 
     public abstract class WorldObject : ReactiveObject
     {
@@ -13,7 +15,12 @@ namespace AutomatedCar.Models
             this.Y = y;
             this.Filename = filename;
             this.ZIndex = 1;
+            this.Polygons = new List<Polygon>();
         }
+
+        public bool IsColliding { get; set; }
+
+        public List<Polygon> Polygons { get; set; }
 
         public int ZIndex { get; set; }
 

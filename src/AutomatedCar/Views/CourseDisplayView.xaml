@@ -48,6 +48,13 @@
                         <Polyline Stroke="{Binding Brush, Mode=OneWay}" Points="{Binding Geometry.Points, Mode=OneWay}" />
                     </Canvas>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type models:Road}">
+                    <Canvas>
+                        <Image Width="100" Height="100"
+                            Source="{Binding Filename, Converter={x:Static visualization:WorldObjectTransformer.Instance}}"/>
+                        <Polyline Stroke="{Binding Brush, Mode=OneWay}" Points="{Binding Polygons[0].Points, Mode=OneWay}" />
+                    </Canvas>
+                </DataTemplate>
             </ItemsControl.DataTemplates>
         </ItemsControl>
     </ScrollViewer>

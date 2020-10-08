@@ -8,6 +8,7 @@ namespace AutomatedCar.Models
             : base(x, y, filename, iscolliding, rotmatrix)
         {
             this.Polygons.Add(garageplace);
+            this.IsColliding = iscolliding;
         }
     }
 }
