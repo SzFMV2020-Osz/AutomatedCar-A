@@ -39,8 +39,8 @@ namespace Tests.SystemComponents
             Assert.False(hmi.BreakpedalDown);
             Assert.False(hmi.CameraDebug);
             Assert.False(hmi.GaspedalDown);
-            Assert.False(hmi.GeerDown);
-            Assert.False(hmi.GeerUp);
+            Assert.False(hmi.GearDown);
+            Assert.False(hmi.GearUp);
             Assert.False(hmi.LaneKeeping);
             Assert.False(hmi.ParkingPilot);
             Assert.False(hmi.RadarDebug);
@@ -146,9 +146,9 @@ namespace Tests.SystemComponents
         {
             KeyboardFill();
             Keyboard.Keys.Remove(Key.W);
-            hmi.GeerUpKey();
+            hmi.GearUpKey();
 
-            Assert.False(hmi.GeerUp);
+            Assert.False(hmi.GearUp);
         }
 
         [Fact]
@@ -156,9 +156,9 @@ namespace Tests.SystemComponents
         {
             KeyboardFill();
             Keyboard.Keys.Remove(Key.S);
-            hmi.GeerDownKey();
+            hmi.GearDownKey();
 
-            Assert.False(hmi.GeerDown);
+            Assert.False(hmi.GearDown);
         }
 
         [Fact]
@@ -315,18 +315,18 @@ namespace Tests.SystemComponents
         public void WithTheRightKeyPressedTrueGeerUp()
         {
             Keyboard.Keys.Add(Key.W);
-            hmi.GeerUpKey();
+            hmi.GearUpKey();
 
-            Assert.True(hmi.GeerUp);
+            Assert.True(hmi.GearUp);
         }
 
         [Fact]
         public void WithTheRightKeyPressedTrueGeerDown()
         {
             Keyboard.Keys.Add(Key.S);
-            hmi.GeerDownKey();
+            hmi.GearDownKey();
 
-            Assert.True(hmi.GeerDown);
+            Assert.True(hmi.GearDown);
         }
 
         [Fact]

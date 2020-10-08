@@ -33,5 +33,7 @@
             get => this.dashboard;
             private set => this.RaiseAndSetIfChanged(ref this.dashboard, value);
         }
+
+
     }
 }

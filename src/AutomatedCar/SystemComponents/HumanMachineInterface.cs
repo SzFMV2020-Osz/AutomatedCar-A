@@ -14,8 +14,8 @@
         private bool breakpedalDown;
         private bool steeringRight;
         private bool steeringLeft;
-        private bool geerUp;
-        private bool geerDown;
+        private bool gearUp;
+        private bool gearDown;
         private bool acc;
         private bool accDistance;
         private bool accSpeedPlus;
@@ -50,9 +50,9 @@
 
         public bool SteeringLeft { get => this.steeringLeft; set => this.steeringLeft = value; }
 
-        public bool GeerUp { get => this.geerUp; set => this.geerUp = value; }
+        public bool GearUp { get => this.gearUp; set => this.gearUp = value; }
 
-        public bool GeerDown { get => this.geerDown; set => this.geerDown = value; }
+        public bool GearDown { get => this.gearDown; set => this.gearDown = value; }
 
         public bool Acc { get => this.acc; set => this.acc = value; }
 
@@ -83,7 +83,7 @@
 
         public override void Process()
         {
-            this.hmiPacket.GearCalculate(this.geerUp, this.geerDown);
+            this.hmiPacket.GearCalculate(this.gearUp, this.gearDown);
             this.hmiPacket.AccSet(this.acc);
             this.hmiPacket.AccDistanceSet(this.accDistance);
             this.hmiPacket.AccSpeedSet(this.accSpeedPlus, this.accSpeedMinus);
@@ -104,8 +104,8 @@
             this.AccDistanceKey();
             this.TurnSignalRightKey();
             this.TurnSignalLeftKey();
-            this.GeerUpKey();
-            this.GeerDownKey();
+            this.GearUpKey();
+            this.GearDownKey();
             this.AccKey();
             this.LaneKeepingKey();
             this.ParkingPilotKey();
@@ -200,85 +200,70 @@
 
         public void TurnSignalRightKey()
         {
-            if (Keyboard.IsKeyDown(Key.E))
+            if (Keyboard.IsToggleableKeyDown(Key.E))
             {
-                this.turnSignalRight = true;
-            }
-            else
-            {
-                this.turnSignalRight = false;
+                this.turnSignalRight = !this.turnSignalRight;
+                Keyboard.DeleteToggleableKey(Key.E);
             }
         }
 
         public void TurnSignalLeftKey()
         {
-            if (Keyboard.IsKeyDown(Key.Q))
+            if (Keyboard.IsToggleableKeyDown(Key.Q))
             {
-                this.turnSignalLeft = true;
-            }
-            else
-            {
-                this.turnSignalLeft = false;
+                this.turnSignalLeft = !this.turnSignalLeft;
+                Keyboard.DeleteToggleableKey(Key.Q);
             }
         }
 
-        public void GeerUpKey()
+        public void GearUpKey()
         {
             if (Keyboard.IsKeyDown(Key.W))
             {
-                this.geerUp = true;
+                this.gearUp = true;
             }
             else
             {
-                this.geerUp = false;
+                this.gearUp = false;
             }
         }
 
-        public void GeerDownKey()
+        public void GearDownKey()
         {
             if (Keyboard.IsKeyDown(Key.S))
             {
-                this.geerDown = true;
+                this.gearDown = true;
             }
             else
             {
-                this.geerUp = false;
+                this.gearUp = false;
             }
         }
 
         public void AccKey()
         {
-            if (Keyboard.IsKeyDown(Key.A))
+            if (Keyboard.IsToggleableKeyDown(Key.A))
             {
-                this.acc = true;
-            }
-            else
-            {
-                this.acc = false;
+                this.acc = !this.acc;
+                Keyboard.DeleteToggleableKey(Key.A);
             }
         }
 
         public void LaneKeepingKey()
         {
-            if (Keyboard.IsKeyDown(Key.D))
+            if (Keyboard.IsToggleableKeyDown(Key.D))
             {
-                this.laneKeeping = true;
-            }
-            else
-            {
-                this.laneKeeping = false;
+                this.laneKeeping = !this.laneKeeping;
+                Keyboard.DeleteToggleableKey(Key.D);
             }
         }
 
         public void ParkingPilotKey()
         {
-            if (Keyboard.IsKeyDown(Key.R))
+            if (Keyboard.IsToggleableKeyDown(Key.R))
             {
-                this.parkingPilot = true;
-            }
-            else
-            {
-                this.parkingPilot = false;
+                this.parkingPilot = !this.parkingPilot;
+                Keyboard.DeleteToggleableKey(Key.R);
             }
         }
 

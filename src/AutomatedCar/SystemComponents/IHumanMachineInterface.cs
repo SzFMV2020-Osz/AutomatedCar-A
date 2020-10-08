@@ -14,9 +14,9 @@ interface IHumanMachineInterface
 
     bool SteeringLeft { get; set; }
 
-    bool GeerUp { get; set; }
+    bool GearUp { get; set; }
 
-    bool GeerDown { get; set; }
+    bool GearDown { get; set; }
 
     bool Acc { get; set; }
 
