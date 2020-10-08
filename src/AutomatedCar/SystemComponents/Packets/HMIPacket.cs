@@ -150,5 +150,45 @@ namespace AutomatedCar.SystemComponents.Packets
                 this.acc = !this.acc;
             }
         }
+
+        public void HandleGasPedal(bool isGasPedalDown)
+        {
+            if (isGasPedalDown)
+            {
+                Increase(ref this.gaspedal, 1000);
+            }
+            else
+            {
+                Decrease(ref this.gaspedal, 1000);
+            }
+        }
+
+        public void HandleBrakePedal(bool isBrakePedalDown)
+        {
+            if (isBrakePedalDown)
+            {
+                Increase(ref this.gaspedal, 500);
+            }
+            else
+            {
+                Decrease(ref this.gaspedal, 500);
+            }
+        }
+
+        private void Increase(ref double pedal, double millisecondsToReachMaxValue)
+        {
+            if (pedal < 100)
+            {
+                pedal += 10 / (millisecondsToReachMaxValue / 1000 * 6);
+            }
+        }
+
+        private void Decrease(ref double pedal, double millisecondsToReachMaxValue)
+        {
+            if (pedal > 0)
+            {
+                pedal -= 10 / (millisecondsToReachMaxValue / 1000 * 6);
+            }
+        }
     }
 }
